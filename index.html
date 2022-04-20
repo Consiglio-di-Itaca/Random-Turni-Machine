@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="it" class="no-js">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+
+    <title>Random Turni Machine</title>
+
+    <script type="module">
+        document.documentElement.classList.remove("no-js"); document.documentElement.classList.add("js");
+    </script>
+
+    <link rel="stylesheet" href="/assets/css/styles.css" />
+    <link rel="stylesheet" href="/assets/css/print.css" media="print" />
+
+    <meta name="description" content="Page description" />
+    <meta property="og:title" content="Unique page title - My Site" />
+    <meta property="og:description" content="Page description" />
+    <meta property="og:image" content="https://www.mywebsite.com/image.jpg" />
+    <meta property="og:image:alt" content="Image description" />
+    <meta property="og:locale" content="it_IT" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta property="og:url" content="https://www.mywebsite.com/page" />
+    <link rel="canonical" href="https://www.mywebsite.com/page" />
+
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/my.webmanifest" />
+    <meta name="theme-color" content="#FF00FF" />
+</head>
+
+<body>
+    <header>
+        <h1>Random Turni Machine</h1>
+    </header>
+    <main>
+        <h2>Turni</h2>
+        <p>
+            Inserisci i nomi, il ruolo che preferiscono ricoprire e il tempo che hanno indicato come disponibilità.
+        </p>
+        <form>
+            <div class="form-group">
+                <label for="nome">Nome</label>
+                <input type="text" id="nome" name="nome" placeholder="Nome" />
+                <label for="ruolo">Ruolo</label>
+                <select name="ruolo" id="ruolo">
+            <option value="bar">Bar</option>
+            <option value="tessere">Tessere</option>
+            <option value="pulizie">Pulizie</option>
+            <option value="indifferente">Indifferente</option>
+          </select>
+                <label for="tempo">Tempo</label>
+                <select name="tempo" id="tempo">
+            <option value="mattina">Mattina</option>
+            <option value="pomeriggio">Pomeriggio</option>
+            <option value="sera">Sera</option>
+            <option value="indifferente">Indifferente</option>
+            <option value="giorno prima">Giorno prima</option>
+          </select>
+                <button type="button" class="addPerson">Add</button>
+                <button type="button" class="delPerson">Del</button>
+            </div>
+            <button type="submit">Invia</button>
+        </form>
+    </main>
+    <script src="/assets/js/xy-polyfill.js" nomodule></script>
+    <script src="/assets/js/script.js" type="module"></script>
+    <script type="text/javascript">
+        let addP = document.querySelector(".addPerson");
+        let delP = document.querySelector(".delPerson");
+        let form = document.querySelector("form");
+        let submit = document.querySelector("button[type=submit]");
+        let i = 0;
+        if (i == 0) {
+            delP.style.display = "none";
+        } else {
+            delP.style.display = "inline";
+        }
+        addP.addEventListener("click", () => {
+            i++;
+            if (i == 0) {
+                delP.style.display = "none";
+            } else {
+                delP.style.display = "inline";
+            }
+            let newDiv = document.createElement("div.form-group");
+            let newF = `<div class="form-group">
+                <label for="nome">Nome</label>
+                <input type="text" id="nome" name="nome" placeholder="Nome" />
+                <label for="ruolo">Ruolo</label>
+                <select name="ruolo" id="ruolo">
+            <option value="bar">Bar</option>
+            <option value="tessere">Tessere</option>
+            <option value="pulizie">Pulizie</option>
+            <option value="indifferente">Indifferente</option>
+          </select>
+                <label for="tempo">Tempo</label>
+                <select name="tempo" id="tempo">
+            <option value="mattina">Mattina</option>
+            <option value="pomeriggio">Pomeriggio</option>
+            <option value="sera">Sera</option>
+            <option value="indifferente">Indifferente</option>
+            <option value="giorno prima">Giorno prima</option>
+          </select>
+                <button type="button" class="addPerson">Add</button>
+                <button type="button" class="delPerson">Del</button>
+            </div>`;
+            form.insertAdjacentElement("beforeend", newDiv);
+        });
+        delP.addEventListener("click", () => {
+            i--;
+            if (i == 0) {
+                delP.style.display = "none";
+            } else {
+                delP.style.display = "inline";
+            }
+        });
+    </script>
+</body>
+
+</html>
